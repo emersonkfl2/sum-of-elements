@@ -2,7 +2,6 @@ package com.test.bluecoding;
 
 import java.util.Arrays;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 public class FirstUniqueSum {
 
@@ -22,9 +21,9 @@ public class FirstUniqueSum {
     }
 
     private static Integer getSum(int[] array) {
-//        Integer filterElements = Arrays.stream(array).collect( );
-        Integer sumOfElements =  Arrays.stream(array).filter(arr -> Arrays.stream(array).filter(x -> x == arr).count()
-        )).sum();
+        Integer sumOfElements =  Arrays.stream(array)
+                .filter(arr -> Arrays.stream(array).filter(x -> x == arr).count() == 1)
+                .sum();
 
         return sumOfElements;
     }
